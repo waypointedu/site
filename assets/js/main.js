@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 'WPT-2025-CD456': {
                     course: 'Christian Doctrine I: Creed, Trinity, Christology',
-                    date: 'February 10, 2025',
+                   date: 'February 10, 2025',
                     cohort: 'Winter 2025 Cohort B'
                 },
                 'WPT-2025-EF789': {
@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h3 style="color: #DC2626;">✗ Certificate Not Found</h3>
                     <p>The certificate ID <strong>${certId}</strong> was not found in our records.</p>
                     <p style="margin-top: 1rem;">Please check the ID and try again. If you believe this is an error, <a href__="contact.html">contact us</a>.</p>
+                    <p style="margin-top: 1rem;">Please check the ID and try again. If you believe this is an error, <a href="contact.html">contact us</a>.</p>
                 `;
                 resultDiv.className = 'verify-result verify-error';
             }
