@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title desc">
+  <title id="title">Waypoint College seal</title>
+  <desc id="desc">Circular seal with blue compass star and the words Waypoint College, Established 2025.</desc>
+  <defs>
+    <linearGradient id="outerRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1f6ff"/>
+      <stop offset="100%" stop-color="#c9dcff"/>
+    </linearGradient>
+    <linearGradient id="starFill" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#1c4f9c"/>
+      <stop offset="100%" stop-color="#0a2e6d"/>
+    </linearGradient>
+  </defs>
+  <circle cx="200" cy="200" r="195" fill="url(#outerRing)" stroke="#204e9f" stroke-width="10"/>
+  <circle cx="200" cy="200" r="150" fill="#ffffff" stroke="#8fb1e8" stroke-width="6"/>
+  <g transform="translate(200 200)">
+    <polygon points="0,-150 25,-25 150,0 25,25 0,150 -25,25 -150,0 -25,-25" fill="url(#starFill)"/>
+    <polygon points="0,-120 18,-18 120,0 18,18 0,120 -18,18 -120,0 -18,-18" fill="#ffffff" opacity="0.35"/>
+  </g>
+  <text x="200" y="115" text-anchor="middle" font-family="'Merriweather', 'Georgia', serif" font-size="42" fill="#1c4f9c" letter-spacing="6">WAYPOINT</text>
+  <text x="200" y="310" text-anchor="middle" font-family="'Merriweather', 'Georgia', serif" font-size="42" fill="#1c4f9c" letter-spacing="6">COLLEGE</text>
+  <text x="90" y="210" text-anchor="middle" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="26" fill="#1c4f9c">Est.</text>
+  <text x="310" y="210" text-anchor="middle" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="26" fill="#1c4f9c">2025</text>
+</svg>
