@@ -113,12 +113,18 @@ section {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: var(--white);
+    background: transparent;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 12px 32px -20px rgba(10, 46, 109, 0.45);
 }
 
 .utility-bar {
-    background: var(--white);
+    background: transparent;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(12, 44, 102, 0.08);
 }
 
