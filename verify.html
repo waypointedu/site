@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify a Certificate — Waypoint Institute</title>
+    <meta name="description" content="Verify the authenticity of a Waypoint Institute certificate by entering the unique certificate ID.">
+    
+    <link rel="preconnect" href__="https://fonts.googleapis.com">
+    <link rel="preconnect" href__="https://fonts.gstatic.com" crossorigin>
+    <link href__="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href__="assets/css/styles.css">
+    <link rel="icon" href__="favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href__="index.html" class="logo">Waypoint Institute</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <ul>
+                        <li><a href__="programs.html">Programs</a></li>
+                        <li><a href__="courses.html">Courses</a></li>
+                        <li><a href__="faculty.html">Faculty</a></li>
+                        <li><a href__="how-it-works.html">How it works</a></li>
+                        <li><a href__="donors.html">Donors</a></li>
+                        <li><a href__="faq.html">FAQ</a></li>
+                        <li><a href__="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href__="https://example.com/apply" class="btn btn-secondary">Apply</a>
+                    <a href__="login.html" class="btn btn-text">Login</a>
+                    <a href__="https://example.com/give" class="btn btn-primary">Give</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Verify a Certificate</h1>
+            <p class="lead">Each Waypoint certificate carries a unique QR code that points to this page. Enter the certificate ID to confirm authenticity.</p>
+        </div>
+    </section>
+
+    <!-- Verification Form -->
+    <section class="verify-section">
+        <div class="container">
+            <div class="verify-wrapper">
+                <form id="verify-form" class="verify-form">
+                    <div class="form-group">
+                        <label for="cert-id">Certificate ID</label>
+                        <input 
+                            type="text" 
+                            id="cert-id" 
+                            name="cert-id" 
+                            placeholder="e.g., WPT-2025-AB123" 
+                            required 
+                            aria-required="true"
+                        >
+                        <p class="form-help">Enter the ID exactly as shown on the certificate.</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Verify Certificate</button>
+                </form>
+
+                <div id="verify-result" class="verify-result" style="display: none;">
+                    <!-- Result will be dynamically inserted by JavaScript -->
+                </div>
+
+                <div class="verify-info">
+                    <h3>How Verification Works</h3>
+                    <ul>
+                        <li>Each certificate includes a unique ID (format: WPT-YYYY-XXXXX)</li>
+                        <li>QR codes on certificates link directly to this page with the ID pre-filled</li>
+                        <li>Verification confirms course title, completion date, and issuing cohort</li>
+                        <li>For privacy, student names are not displayed publicly</li>
+                    </ul>
+                    <p class="verify-note"><strong>Note:</strong> This is a demo implementation. In production, verification would query a secure database or static JSON file. For now, the verification is simulated in JavaScript.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <p class="footer-mission">Waypoint Institute offers donor-funded courses in Scripture, doctrine, culture, and mission. Free to learners, secure for restricted contexts.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href__="programs.html">Certificates & Tracks</a></li>
+                        <li><a href__="courses.html">Course Catalog</a></li>
+                        <li><a href__="faculty.html">Faculty</a></li>
+                        <li><a href__="how-it-works.html">How it Works</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href__="#privacy">Privacy</a></li>
+                        <li><a href__="#conduct">Code of Conduct</a></li>
+                        <li><a href__="verify.html">Verify Certificate</a></li>
+                        <li><a href__="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p class="non-accreditation-notice"><strong>Waypoint Institute is an independent, tuition-free Christian institute. We are non-accredited by design.</strong> Certificates represent completion of Waypoint courses; transfer to other institutions is not implied.</p>
+                <p class="copyright">© <span id="year"></span> Waypoint Institute. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
