@@ -52,10 +52,87 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainNav = document.querySelector('.main-nav');
 
     if (menuToggle && mainNav) {
+        const setNavState = (open) => {
+            menuToggle.setAttribute('aria-expanded', open);
+            mainNav.classList.toggle('active', open);
+            mainNav.setAttribute('aria-hidden', (!open).toString());
+        };
+
         menuToggle.addEventListener('click', function() {
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', !isExpanded);
-            mainNav.classList.toggle('active');
+            setNavState(!isExpanded);
+        });
+
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    setNavState(false);
+                }
+            });
+        });
+
+        if (window.innerWidth <= 900) {
+            mainNav.setAttribute('aria-hidden', 'true');
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900) {
+                setNavState(false);
+                mainNav.removeAttribute('aria-hidden');
+            } else if (menuToggle.getAttribute('aria-expanded') !== 'true') {
+                mainNav.setAttribute('aria-hidden', 'true');
+            }
+        });
+    }
+});
+
+// ====================================
+// HEADER SEARCH TOGGLE
+// ====================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchToggle = document.querySelector('.utility-search');
+    const searchPanel = document.getElementById('site-search-panel');
+    const searchClose = searchPanel ? searchPanel.querySelector('.search-close') : null;
+    const searchInput = searchPanel ? searchPanel.querySelector('.search-input') : null;
+
+    if (searchToggle && searchPanel) {
+        const setSearchState = (open) => {
+            searchToggle.setAttribute('aria-expanded', open);
+            searchPanel.classList.toggle('active', open);
+            searchPanel.setAttribute('aria-hidden', (!open).toString());
+            if (open && searchInput) {
+                setTimeout(() => searchInput.focus(), 60);
+            }
+        };
+
+        searchToggle.addEventListener('click', () => {
+            const isExpanded = searchToggle.getAttribute('aria-expanded') === 'true';
+            setSearchState(!isExpanded);
+        });
+
+        if (searchClose) {
+            searchClose.addEventListener('click', () => setSearchState(false));
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                setSearchState(false);
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!searchPanel.classList.contains('active')) {
+                return;
+            }
+
+            const clickTarget = event.target;
+            if (searchPanel.contains(clickTarget) || searchToggle.contains(clickTarget)) {
+                return;
+            }
+
+            setSearchState(false);
         });
     }
 });
