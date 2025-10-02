@@ -1,0 +1,169 @@
+contact.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Waypoint Institute</title>
+    <meta name="description" content="Get in touch with Waypoint Institute. General inquiries via email, secure channels via Signal/Wire for sensitive contexts.">
+    
+    <link rel="preconnect" href__="https://fonts.googleapis.com">
+    <link rel="preconnect" href__="https://fonts.gstatic.com" crossorigin>
+    <link href__="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href__="assets/css/styles.css">
+    <link rel="icon" href__="favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href__="index.html" class="logo">Waypoint Institute</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <ul>
+                        <li><a href__="programs.html">Programs</a></li>
+                        <li><a href__="courses.html">Courses</a></li>
+                        <li><a href__="faculty.html">Faculty</a></li>
+                        <li><a href__="how-it-works.html">How it works</a></li>
+                        <li><a href__="donors.html">Donors</a></li>
+                        <li><a href__="faq.html">FAQ</a></li>
+                        <li><a href__="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href__="https://example.com/apply" class="btn btn-secondary">Apply</a>
+                    <a href__="login.html" class="btn btn-text">Login</a>
+                    <a href__="https://example.com/give" class="btn btn-primary">Give</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Contact</h1>
+            <p class="lead">Reach out with questions, feedback, or partnership inquiries.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- General Inquiries -->
+                <div class="contact-col">
+                    <h2>General Inquiries</h2>
+                    <p>For general questions, application support, donor inquiries, or media requests:</p>
+                    <p class="contact-email">
+                        <a href__="mailto:hello@waypoint.institute">hello@waypoint.institute</a>
+                    </p>
+                    <p class="contact-note">We typically respond within 1–2 business days.</p>
+                </div>
+
+                <!-- Secure Channels -->
+                <div class="contact-col">
+                    <h2>Secure Channels</h2>
+                    <p>For learners in restricted contexts or sensitive cohort inquiries, we use end-to-end encrypted messaging:</p>
+                    <ul class="secure-list">
+                        <li><strong>Signal:</strong> Preferred for secure cohort coordination</li>
+                        <li><strong>Wire:</strong> Alternative encrypted option</li>
+                    </ul>
+                    <p>Request secure contact details via this form:</p>
+                    <!-- TODO: Replace with real secure contact form -->
+                    <a href__="https://example.com/secure-contact" class="btn btn-secondary">Request Secure Contact</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <h2>Send Us a Message</h2>
+                <p class="form-intro">Fill out the form below and we'll get back to you soon.</p>
+                
+                <!-- TODO: Replace action URL with real endpoint (e.g., Formspree, Tally, Google Form) -->
+                <form action="https://example.com/contact" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name or Pseudonym</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topic">Topic</label>
+                        <select id="topic" name="topic" required aria-required="true">
+                            <option value="">Select a topic...</option>
+                            <option value="application">Application Question</option>
+                            <option value="course">Course Inquiry</option>
+                            <option value="donor">Donor Inquiry</option>
+                            <option value="secure">Secure Cohort Request</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
+                    </div>
+
+                    <p class="form-privacy">
+                        <small><strong>Privacy note:</strong> We collect minimal data and purge on a schedule. For sensitive inquiries, please request secure contact instead.</small>
+                    </p>
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <p class="footer-mission">Waypoint Institute offers donor-funded courses in Scripture, doctrine, culture, and mission. Free to learners, secure for restricted contexts.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href__="programs.html">Certificates & Tracks</a></li>
+                        <li><a href__="courses.html">Course Catalog</a></li>
+                        <li><a href__="faculty.html">Faculty</a></li>
+                        <li><a href__="how-it-works.html">How it Works</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href__="#privacy">Privacy</a></li>
+                        <li><a href__="#conduct">Code of Conduct</a></li>
+                        <li><a href__="verify.html">Verify Certificate</a></li>
+                        <li><a href__="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p class="non-accreditation-notice"><strong>Waypoint Institute is an independent, tuition-free Christian institute. We are non-accredited by design.</strong> Certificates represent completion of Waypoint courses; transfer to other institutions is not implied.</p>
+                <p class="copyright">© <span id="year"></span> Waypoint Institute. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
