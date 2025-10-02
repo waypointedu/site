@@ -12,6 +12,38 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ====================================
+// HEADER / NAVIGATION SANITY CHECKS
+// ====================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const headers = Array.from(document.querySelectorAll('.site-header'));
+
+    headers.forEach(header => {
+        const navs = Array.from(header.querySelectorAll('.main-nav'));
+
+        navs.forEach(nav => {
+            const links = Array.from(nav.querySelectorAll('a'));
+            const hasBrokenAttributes = Boolean(nav.querySelector('[href__]'));
+            const invalidLinks = links.filter(link => !link.hasAttribute('href') || link.getAttribute('href').trim() === '');
+
+            if (hasBrokenAttributes || (links.length > 0 && invalidLinks.length === links.length)) {
+                const headerContainer = nav.closest('.site-header');
+                if (headerContainer) {
+                    headerContainer.remove();
+                } else {
+                    nav.remove();
+                }
+            }
+        });
+    });
+
+    const remainingHeaders = Array.from(document.querySelectorAll('.site-header'));
+    if (remainingHeaders.length > 1) {
+        remainingHeaders.slice(1).forEach(header => header.remove());
+    }
+});
+
+// ====================================
 // MOBILE MENU TOGGLE
 // ====================================
 
@@ -109,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 resultDiv.innerHTML = `
                     <h3 style="color: #DC2626;">✗ Certificate Not Found</h3>
                     <p>The certificate ID <strong>${certId}</strong> was not found in our records.</p>
-                    <p style="margin-top: 1rem;">Please check the ID and try again. If you believe this is an error, <a href__="contact.html">contact us</a>.</p>
+                    <p style="margin-top: 1rem;">Please check the ID and try again. If you believe this is an error, <a href="contact.html">contact us</a>.</p>
                 `;
                 resultDiv.className = 'verify-result verify-error';
             }
