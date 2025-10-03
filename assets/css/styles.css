@@ -114,7 +114,7 @@ section {
     top: 0;
     z-index: 1000;
     background: transparent;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.32);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 12px 32px -20px rgba(10, 46, 109, 0.45);
@@ -122,7 +122,7 @@ section {
 
 .utility-bar {
     background: transparent;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.24);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(12, 44, 102, 0.08);
@@ -138,15 +138,24 @@ section {
 .logo {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     position: relative;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #fff;
+    line-height: 0;
     text-decoration: none;
+    isolation: isolate;
 }
 
 .logo-mark {
-    height: 52px;
-    width: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     display: block;
-    transition: var(--transition);
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .logo:hover .logo-mark,
@@ -379,24 +388,11 @@ section {
     text-decoration: none;
     position: relative;
     overflow: hidden;
-    background-size: 200% auto;
+    background-size: 100% auto;
 }
 
 .btn::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.6), transparent 60%);
-    opacity: 0;
-    transform: translate3d(-30%, -30%, 0) scale(0.9);
-    transition: var(--transition);
-    pointer-events: none;
-}
-
-.btn:hover::after,
-.btn:focus-visible::after {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1.05);
+    content: none;
 }
 
 .btn-primary {
@@ -407,22 +403,23 @@ section {
 }
 
 .btn-primary:hover {
-    background-position: right center;
+    background-position: center;
     transform: translateY(-2px);
     box-shadow: 0 16px 36px -18px rgba(20, 66, 138, 0.82);
 }
 
 .btn-secondary {
-    background: linear-gradient(135deg, rgba(227, 237, 255, 0.45), rgba(255, 255, 255, 0.9));
-    color: var(--ink);
-    border-color: rgba(17, 24, 39, 0.08);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(227, 237, 255, 0.85));
+    color: var(--accent-deep);
+    border-color: rgba(12, 44, 102, 0.15);
+    box-shadow: 0 10px 26px -20px rgba(12, 44, 102, 0.38);
 }
 
 .btn-secondary:hover {
-    border-color: rgba(12, 44, 102, 0.15);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(227, 237, 255, 0.92));
+    border-color: rgba(12, 44, 102, 0.25);
     color: var(--accent-deep);
-    box-shadow: 0 12px 30px -20px rgba(28, 79, 156, 0.35);
+    box-shadow: 0 16px 34px -18px rgba(12, 44, 102, 0.42);
 }
 
 .btn-text {
@@ -448,10 +445,16 @@ section {
 
 .hero {
     padding: 6rem 0;
-    background: linear-gradient(160deg, rgba(143, 182, 255, 0.18), rgba(255, 255, 255, 0.95)), var(--cloud);
+    background:
+        linear-gradient(160deg, rgba(143, 182, 255, 0.22), rgba(255, 255, 255, 0.82)),
+        url('../img/icthys.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
     z-index: 0;
+    color: var(--ink);
 }
 
 .hero::before,
@@ -488,6 +491,7 @@ section {
     font-size: 3rem;
     margin-bottom: 1.5rem;
     line-height: 1.1;
+    color: var(--ink);
 }
 
 .hero-tagline {
@@ -498,18 +502,19 @@ section {
     letter-spacing: 0.06em;
     text-transform: none;
     margin-bottom: 1.5rem;
+    text-shadow: 0 2px 12px rgba(255, 255, 255, 0.55);
 }
 
 .hero-subtext {
     font-size: 1.35rem;
-    color: var(--gray-600);
+    color: rgba(14, 32, 72, 0.92);
     margin-bottom: 1.75rem;
     line-height: 1.5;
 }
 
 .hero-support {
     font-size: 1.1rem;
-    color: var(--gray-600);
+    color: rgba(14, 32, 72, 0.88);
     margin-bottom: 2.5rem;
     line-height: 1.7;
 }
