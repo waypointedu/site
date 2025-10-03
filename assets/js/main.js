@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p><strong>Course:</strong> ${certificate.course}</p>
                     <p><strong>Completion Date:</strong> ${certificate.date}</p>
                     <p><strong>Cohort:</strong> ${certificate.cohort}</p>
-                    <p style="margin-top: 1rem; color: var(--gray-600);"><small>For privacy, student names are not displayed. This certificate is authentic and issued by Waypoint Academy.</small></p>
+                    <p style="margin-top: 1rem; color: var(--gray-600);"><small>For privacy, student names are not displayed. This certificate is authentic and issued by Waypoint Institute.</small></p>
                 `;
                 resultDiv.className = 'verify-result verify-success';
             } else {
