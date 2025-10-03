@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <linearGradient id="compass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8fb4ff"/>
+      <stop offset="100%" stop-color="#3a66a8"/>
+    </linearGradient>
+    <radialGradient id="ring" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e5f0ff"/>
+      <stop offset="100%" stop-color="#afc5ea"/>
+    </radialGradient>
+    <style>
+      .label { font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; text-anchor: middle; fill: #2b4d82; }
+    </style>
+  </defs>
+  <circle cx="160" cy="160" r="150" fill="none" stroke="url(#ring)" stroke-width="18"/>
+  <circle cx="160" cy="160" r="108" fill="rgba(255,255,255,0.92)" stroke="#bfd2f2" stroke-width="6"/>
+  <path d="M160 60 L187 160 L160 260 L133 160 Z" fill="url(#compass)"/>
+  <path d="M60 160 L160 187 L260 160 L160 133 Z" fill="url(#compass)" opacity="0.85"/>
+  <circle cx="160" cy="160" r="16" fill="#1e3a68" opacity="0.85"/>
+  <text x="160" y="122" class="label" font-size="36">WAYPOINT</text>
+  <text x="160" y="198" class="label" font-size="36">ACADEMY</text>
+  <text x="115" y="232" class="label" font-size="20">Est.</text>
+  <text x="205" y="232" class="label" font-size="20">2025</text>
+</svg>
