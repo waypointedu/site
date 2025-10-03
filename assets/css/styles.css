@@ -113,8 +113,6 @@ section {
    ==================================== */
 
 .site-header {
-    position: sticky;
-    top: 0;
     z-index: 1000;
     background: transparent;
     background-color: rgba(255, 255, 255, 0.32);
