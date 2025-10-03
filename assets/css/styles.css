@@ -517,7 +517,8 @@ section {
     color: var(--accent);
     text-shadow:
         0 10px 35px rgba(10, 46, 109, 0.28),
-        0 0 26px rgba(255, 255, 255, 0.75);
+        0 0 12px rgba(255, 255, 255, 0.68),
+        0 0 34px rgba(255, 255, 255, 0.9);
 }
 
 .hero-tagline {
