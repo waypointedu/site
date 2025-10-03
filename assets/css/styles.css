@@ -392,10 +392,21 @@ section {
     position: relative;
     overflow: hidden;
     background-size: 100% auto;
+    color: var(--accent-deep);
 }
 
 .btn::after {
     content: none;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    transform: translateY(-2px);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
 }
 
 .btn-primary {
@@ -405,36 +416,41 @@ section {
     box-shadow: 0 12px 30px -18px rgba(20, 66, 138, 0.75);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus-visible {
     background-position: center;
-    transform: translateY(-2px);
-    box-shadow: 0 16px 36px -18px rgba(20, 66, 138, 0.82);
+    box-shadow: 0 18px 40px -16px rgba(20, 66, 138, 0.85);
+    color: var(--white);
 }
 
 .btn-secondary {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(227, 237, 255, 0.85));
+    background: rgba(255, 255, 255, 0.92);
     color: var(--accent-deep);
-    border-color: rgba(12, 44, 102, 0.15);
+    border-color: rgba(12, 44, 102, 0.22);
     box-shadow: 0 10px 26px -20px rgba(12, 44, 102, 0.38);
 }
 
-.btn-secondary:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(227, 237, 255, 0.92));
-    border-color: rgba(12, 44, 102, 0.25);
-    color: var(--accent-deep);
-    box-shadow: 0 16px 34px -18px rgba(12, 44, 102, 0.42);
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+    background: linear-gradient(135deg, var(--accent-deep), var(--accent));
+    color: var(--white);
+    border-color: transparent;
+    box-shadow: 0 18px 36px -16px rgba(12, 44, 102, 0.52);
 }
 
 .btn-text {
     background: transparent;
-    color: var(--gray-600);
-    border: none;
+    color: var(--accent-deep);
+    border: 1px solid rgba(12, 44, 102, 0.2);
     padding: 0.625rem 0.75rem;
 }
 
-.btn-text:hover {
-    color: var(--accent);
-    transform: translateY(-1px);
+.btn-text:hover,
+.btn-text:focus-visible {
+    color: var(--white);
+    background: var(--accent-deep);
+    border-color: var(--accent-deep);
+    box-shadow: 0 16px 34px -18px rgba(12, 44, 102, 0.4);
 }
 
 .btn-large {
@@ -500,7 +516,8 @@ section {
     font-size: 3rem;
     margin-bottom: 1.5rem;
     line-height: 1.1;
-    color: var(--ink);
+    color: var(--white);
+    text-shadow: 0 4px 18px rgba(10, 46, 109, 0.35);
 }
 
 .hero-tagline {
