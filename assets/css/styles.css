@@ -7,6 +7,7 @@
    RESET & BASE
    ==================================== */
 
+
 * {
     margin: 0;
     padding: 0;
@@ -505,6 +506,16 @@ section {
     margin-bottom: 1.25rem;
 }
 
+.hero-tagline {
+    font-family: 'Merriweather', serif;
+    font-size: 1.75rem;
+    font-style: italic;
+    color: var(--accent-deep);
+    letter-spacing: 0.06em;
+    text-transform: none;
+    margin-bottom: 1.5rem;
+}
+
 .hero-subtext {
     font-size: 1.35rem;
     color: rgba(255, 255, 255, 0.86);
@@ -516,6 +527,13 @@ section {
     font-size: 1.1rem;
     color: rgba(233, 240, 255, 0.85);
     margin-bottom: 2.25rem;
+    line-height: 1.7;
+}
+
+.hero-support {
+    font-size: 1.1rem;
+    color: var(--gray-600);
+    margin-bottom: 2.5rem;
     line-height: 1.7;
 }
 
@@ -2242,6 +2260,14 @@ section {
 
     .hero-actions {
         justify-content: center;
+    }
+
+    .utility-links {
+        display: none;
+    }
+
+    .utility-actions {
+        margin-left: auto;
     }
 
     .utility-links {

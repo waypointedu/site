@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 'WPT-2025-CD456': {
                     course: 'Christian Doctrine I: Creed, Trinity, Christology',
-                    date: 'February 10, 2025',
+                   date: 'February 10, 2025',
                     cohort: 'Winter 2025 Cohort B'
                 },
                 'WPT-2025-EF789': {
