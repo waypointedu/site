@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Page Title | Waypoint Institute</title>
+  <title>Page Title | Waypoint Academy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
@@ -13,40 +13,73 @@
 
 <body>
     <!-- Header -->
-    <header class="site-header" role="banner">
-        <div class="container">
-            <div class="header-content">
-                <a href__="index.html" class="logo">Waypoint Institute</a>
-                <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <nav class="main-nav" role="navigation" aria-label="Main navigation">
-                    <ul>
-                        <li><a href__="programs.html">Programs</a></li>
-                        <li><a href__="courses.html">Courses</a></li>
-                        <li><a href__="faculty.html">Faculty</a></li>
-                        <li><a href__="how-it-works.html">How it works</a></li>
-                        <li><a href__="donors.html">Donors</a></li>
-                        <li><a href__="faq.html" class="active">FAQ</a></li>
-                        <li><a href__="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="header-actions">
-                    <a href__="https://example.com/apply" class="btn btn-secondary">Apply</a>
-                    <a href__="login.html" class="btn btn-text">Login</a>
-                    <a href__="https://example.com/give" class="btn btn-primary">Give</a>
-                </div>
-            </div>
+  <header class="site-header" role="banner">
+    <div class="utility-bar">
+      <div class="container utility-content">
+        <a href="index.html" class="logo" aria-label="Waypoint Academy home">
+          <img src="assets/img/waypoint-academy-logo.svg" alt="Waypoint Academy logo" class="logo-mark">
+          <span class="sr-only">Waypoint Academy</span>
+        </a>
+        <div class="utility-links">
+          <a href="contact.html" class="utility-link">Request Info</a>
+          <a href="https://waypointedu.github.io/site/apply" class="utility-link highlight">Apply Now</a>
+          <a href="https://waypointedu.github.io/site/give" class="utility-link">Give</a>
+          <a href="login.html" class="utility-link">Login</a>
         </div>
-    </header>
+        <div class="utility-actions">
+          <button class="utility-search" type="button" aria-expanded="false" aria-controls="site-search-panel">
+            <span class="sr-only">Toggle site search</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <path d="M14.5833 14.5833L18.3333 18.3333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16.25 8.75C16.25 12.4749 13.2249 15.5 9.5 15.5C5.77513 15.5 2.75 12.4749 2.75 8.75C2.75 5.02513 5.77513 2 9.5 2C13.2249 2 16.25 5.02513 16.25 8.75Z" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </button>
+          <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="header-search-panel" id="site-search-panel" aria-hidden="true">
+      <div class="container">
+        <form class="search-form" role="search" action="faq.html">
+          <label class="sr-only" for="site-search-input">Search Waypoint Academy</label>
+          <input type="search" id="site-search-input" name="q" class="search-input" placeholder="Search programs, courses, or topics">
+          <button type="submit" class="btn btn-primary search-submit">Search</button>
+          <button type="button" class="search-close" aria-label="Close search panel">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="primary-nav">
+      <div class="container nav-content">
+        <nav class="main-nav" role="navigation" aria-label="Main navigation">
+          <ul>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="faculty.html">Faculty</a></li>
+            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="donors.html">Donors</a></li>
+            <li><a href="faq.html" class="active" aria-current="page">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="nav-mobile-actions">
+            <a href="contact.html" class="utility-link">Request Info</a>
+            <a href="https://waypointedu.github.io/site/apply" class="utility-link highlight">Apply Now</a>
+            <a href="https://waypointedu.github.io/site/give" class="utility-link">Give</a>
+            <a href="login.html" class="utility-link">Login</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
 
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
             <h1>Frequently Asked Questions</h1>
-            <p class="lead">Clear answers to common questions about Waypoint Institute.</p>
+            <p class="lead">Clear answers to common questions about Waypoint Academy.</p>
         </div>
     </section>
 
@@ -100,7 +133,7 @@
                 <div class="faq-item">
                     <dt><button class="faq-question" aria-expanded="false">How do I apply?</button></dt>
                     <dd class="faq-answer">
-                        <p>Fill out the <a href__="https://example.com/apply">application form</a>. We'll match you to an appropriate cohort based on your context, language needs, and security concerns. Open cohorts typically have rolling enrollment; secure cohorts may have limited spots.</p>
+                        <p>Fill out the <a href="https://example.com/apply">application form</a>. We'll match you to an appropriate cohort based on your context, language needs, and security concerns. Open cohorts typically have rolling enrollment; secure cohorts may have limited spots.</p>
                     </dd>
                 </div>
 
@@ -129,13 +162,13 @@
                 <div class="faq-item">
                     <dt><button class="faq-question" aria-expanded="false">How do I verify someone's certificate?</button></dt>
                     <dd class="faq-answer">
-                        <p>Each certificate includes a unique QR code linking to our <a href__="verify.html">verification page</a>. Enter the certificate ID to confirm course title, completion date, and issuing cohort.</p>
+                        <p>Each certificate includes a unique QR code linking to our <a href="verify.html">verification page</a>. Enter the certificate ID to confirm course title, completion date, and issuing cohort.</p>
                     </dd>
                 </div>
             </dl>
 
             <div class="faq-cta">
-                <p>Still have questions? <a href__="contact.html">Contact us</a> or browse our <a href__="how-it-works.html">How it Works</a> page.</p>
+                <p>Still have questions? <a href="contact.html">Contact us</a> or browse our <a href="how-it-works.html">How it Works</a> page.</p>
             </div>
         </div>
     </section>
@@ -146,30 +179,30 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>About</h4>
-                    <p class="footer-mission">Waypoint Institute offers donor-funded courses in Scripture, doctrine, culture, and mission. Free to learners, secure for restricted contexts.</p>
+                    <p class="footer-mission">Waypoint Academy offers donor-funded courses in Scripture, doctrine, culture, and mission. Free to learners, secure for restricted contexts.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Programs</h4>
                     <ul>
-                        <li><a href__="programs.html">Certificates & Tracks</a></li>
-                        <li><a href__="courses.html">Course Catalog</a></li>
-                        <li><a href__="faculty.html">Faculty</a></li>
-                        <li><a href__="how-it-works.html">How it Works</a></li>
+                        <li><a href="programs.html">Certificates & Tracks</a></li>
+                        <li><a href="courses.html">Course Catalog</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                        <li><a href="how-it-works.html">How it Works</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href__="#privacy">Privacy</a></li>
-                        <li><a href__="#conduct">Code of Conduct</a></li>
-                        <li><a href__="verify.html">Verify Certificate</a></li>
-                        <li><a href__="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="#privacy">Privacy</a></li>
+                        <li><a href="#conduct">Code of Conduct</a></li>
+                        <li><a href="verify.html">Verify Certificate</a></li>
+                        <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-legal">
-                <p class="non-accreditation-notice"><strong>Waypoint Institute is an independent, tuition-free Christian institute. We are non-accredited by design.</strong> Certificates represent completion of Waypoint courses; transfer to other institutions is not implied.</p>
-                <p class="copyright">© <span id="year"></span> Waypoint Institute. All rights reserved.</p>
+                <p class="non-accreditation-notice"><strong>Waypoint Academy is an independent, tuition-free Christian institute. We are non-accredited by design.</strong> Certificates represent completion of Waypoint courses; transfer to other institutions is not implied.</p>
+                <p class="copyright">© <span id="year"></span> Waypoint Academy. All rights reserved.</p>
             </div>
         </div>
     </footer>
