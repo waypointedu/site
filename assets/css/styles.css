@@ -515,7 +515,9 @@ section {
     margin-bottom: 1.5rem;
     line-height: 1.1;
     color: var(--accent);
-    text-shadow: 0 6px 22px rgba(10, 46, 109, 0.3);
+    text-shadow:
+        0 10px 35px rgba(10, 46, 109, 0.28),
+        0 0 26px rgba(255, 255, 255, 0.75);
 }
 
 .hero-tagline {
@@ -552,6 +554,14 @@ section {
 
 .hero-actions .btn {
     isolation: isolate;
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hero-actions .btn:hover,
+.hero-actions .btn:focus-visible {
+    transform: translate3d(0, -4px, 0) scale(1.035);
 }
 
 .hero-actions .btn::before {
