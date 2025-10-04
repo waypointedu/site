@@ -871,6 +871,34 @@ section {
     margin-bottom: 0;
 }
 
+.cert-details {
+    margin-top: 0.75rem;
+}
+
+.cert-details summary {
+    cursor: pointer;
+}
+
+.cert-outline {
+    list-style: none;
+    margin: 0.75rem 0 0.5rem;
+    padding: 0;
+}
+
+.cert-outline li {
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--rules);
+}
+
+.cert-outline li:last-child {
+    border-bottom: 0;
+}
+
+.cert-total {
+    margin-top: 0.5rem;
+    color: var(--gray-700);
+}
+
 /* ====================================
    SECURITY CALLOUT
    ==================================== */
