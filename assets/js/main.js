@@ -170,6 +170,34 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ====================================
+// CERTIFICATE DETAILS TOGGLE LABELS
+// ====================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const certDetailsBlocks = document.querySelectorAll('.cert-details');
+
+    certDetailsBlocks.forEach(details => {
+        const summary = details.querySelector('summary');
+        if (!summary) {
+            return;
+        }
+
+        const openLabel = summary.dataset.openLabel || summary.textContent.trim() || 'Read more';
+        const closeLabel = summary.dataset.closeLabel || 'Read less';
+
+        summary.dataset.openLabel = openLabel;
+        summary.dataset.closeLabel = closeLabel;
+
+        const updateLabel = () => {
+            summary.textContent = details.open ? summary.dataset.closeLabel : summary.dataset.openLabel;
+        };
+
+        updateLabel();
+        details.addEventListener('toggle', updateLabel);
+    });
+});
+
+// ====================================
 // CERTIFICATE VERIFICATION (DEMO)
 // ====================================
 
@@ -211,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p><strong>Course:</strong> ${certificate.course}</p>
                     <p><strong>Completion Date:</strong> ${certificate.date}</p>
                     <p><strong>Cohort:</strong> ${certificate.cohort}</p>
-                    <p style="margin-top: 1rem; color: var(--gray-600);"><small>For privacy, student names are not displayed. This certificate is authentic and issued by Waypoint Academy.</small></p>
+                    <p style="margin-top: 1rem; color: var(--gray-600);"><small>For privacy, student names are not displayed. This certificate is authentic and issued by Waypoint Institute.</small></p>
                 `;
                 resultDiv.className = 'verify-result verify-success';
             } else {
