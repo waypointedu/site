@@ -899,6 +899,20 @@ section {
     color: var(--gray-700);
 }
 
+.courses-section .container > h2 {
+    margin: 3rem 0 1.5rem;
+    font-size: 2rem;
+    line-height: 1.25;
+}
+
+.courses-section .container > h2:first-of-type {
+    margin-top: 0;
+}
+
+.courses-section .course-list + h2 {
+    margin-top: 3.5rem;
+}
+
 /* ====================================
    SECURITY CALLOUT
    ==================================== */
