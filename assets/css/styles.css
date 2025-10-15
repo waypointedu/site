@@ -390,6 +390,116 @@ section {
     }
 }
 
+.mobile-nav-panel {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 22, 46, 0.55);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    transform: translateX(100%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    z-index: 1600;
+    pointer-events: none;
+}
+
+.mobile-nav-panel.active {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-nav {
+    width: min(320px, 100%);
+    background: var(--white);
+    color: var(--ink);
+    padding: 1.75rem 1.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: -12px 0 32px rgba(12, 44, 102, 0.25);
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.mobile-nav-close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--gray-500);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.mobile-nav-close:hover,
+.mobile-nav-close:focus-visible {
+    color: var(--accent);
+}
+
+.mobile-nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.mobile-nav-links a {
+    display: block;
+    padding: 0.75rem 0.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    border-bottom: 1px solid rgba(12, 44, 102, 0.08);
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a:focus-visible,
+.mobile-nav-links a.active {
+    color: var(--accent);
+}
+
+.mobile-nav-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mobile-nav-actions .utility-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(12, 44, 102, 0.12);
+    color: var(--accent-deep);
+    font-weight: 600;
+}
+
+.mobile-nav-actions .utility-link.highlight {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white);
+}
+
+.mobile-nav-actions .utility-link.active {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.mobile-nav-actions .utility-link:hover,
+.mobile-nav-actions .utility-link:focus-visible {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+body.mobile-nav-open {
+    overflow: hidden;
+}
+
 .header-search-panel {
     display: none;
     background: rgba(227, 237, 255, 0.65);
