@@ -48,43 +48,72 @@ document.addEventListener('DOMContentLoaded', function() {
 // ====================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
+    const headers = document.querySelectorAll('.site-header');
 
-    if (menuToggle && mainNav) {
+    headers.forEach(header => {
+        const menuToggle = header.querySelector('.mobile-menu-toggle');
+        const mobileMenu = header.querySelector('.mobile-nav-menu');
+        const primaryNav = header.querySelector('.primary-nav');
+
+        if (!menuToggle || !mobileMenu) {
+            return;
+        }
+
         const setNavState = (open) => {
-            menuToggle.setAttribute('aria-expanded', open);
-            mainNav.classList.toggle('active', open);
-            mainNav.setAttribute('aria-hidden', (!open).toString());
+            const expanded = open ? 'true' : 'false';
+            menuToggle.setAttribute('aria-expanded', expanded);
+            mobileMenu.classList.toggle('open', open);
+            mobileMenu.setAttribute('aria-hidden', (!open).toString());
+
+            if (open) {
+                document.removeEventListener('click', handleOutsideClick);
+                document.addEventListener('click', handleOutsideClick);
+            } else {
+                document.removeEventListener('click', handleOutsideClick);
+            }
         };
 
-        menuToggle.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        function handleOutsideClick(event) {
+            if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                setNavState(false);
+            }
+        }
+
+        menuToggle.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
             setNavState(!isExpanded);
         });
 
-        const navLinks = mainNav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 900) {
-                    setNavState(false);
-                }
-            });
+        mobileMenu.addEventListener('click', (event) => {
+            event.stopPropagation();
         });
 
-        if (window.innerWidth <= 900) {
-            mainNav.setAttribute('aria-hidden', 'true');
-        }
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => setNavState(false));
+        });
 
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 900) {
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
                 setNavState(false);
-                mainNav.removeAttribute('aria-hidden');
-            } else if (menuToggle.getAttribute('aria-expanded') !== 'true') {
-                mainNav.setAttribute('aria-hidden', 'true');
             }
         });
-    }
+
+        const syncForViewport = () => {
+            if (window.innerWidth > 900) {
+                setNavState(false);
+                if (primaryNav) {
+                    primaryNav.removeAttribute('aria-hidden');
+                }
+            } else if (primaryNav) {
+                primaryNav.setAttribute('aria-hidden', 'true');
+            }
+        };
+
+        syncForViewport();
+        window.addEventListener('resize', syncForViewport);
+    });
 });
 
 // ====================================
@@ -324,11 +353,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const revealSelector = [
-        'section',
         '.hero',
         '.page-hero',
         '.program-card',
-        '.course-card',
         '.faculty-card',
         '.leader-feature',
         '.tier-card',
@@ -366,6 +393,15 @@ document.addEventListener('DOMContentLoaded', function() {
     revealTargets.forEach(target => {
         target.classList.add('reveal-on-scroll');
         observer.observe(target);
+    });
+
+    requestAnimationFrame(() => {
+        revealTargets.forEach(target => {
+            const rect = target.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.9) {
+                target.classList.add('is-visible');
+            }
+        });
     });
 });
 

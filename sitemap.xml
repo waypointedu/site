@@ -26,12 +26,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://waypointedu.github.io/site/about.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://waypointedu.github.io/site/donors.html</loc>
     <lastmod>2025-01-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://waypointedu.github.io/site/aq.html</loc>
+    <loc>https://waypointedu.github.io/site/faq.html</loc>
     <lastmod>2025-01-15</lastmod>
     <priority>0.7</priority>
   </url>
