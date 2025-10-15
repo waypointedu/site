@@ -52,45 +52,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
     headers.forEach(header => {
         const menuToggle = header.querySelector('.mobile-menu-toggle');
-        const mainNav = header.querySelector('.main-nav');
+        const mobilePanel = header.querySelector('.mobile-nav-panel');
+        const primaryNav = header.querySelector('.primary-nav');
+        const closeButton = mobilePanel ? mobilePanel.querySelector('.mobile-nav-close') : null;
 
-        if (!menuToggle || !mainNav) {
+        if (!menuToggle || !mobilePanel) {
             return;
         }
 
         const setNavState = (open) => {
             const expanded = open ? 'true' : 'false';
             menuToggle.setAttribute('aria-expanded', expanded);
-            mainNav.classList.toggle('active', open);
-            if (open) {
-                mainNav.removeAttribute('aria-hidden');
-            } else {
-                mainNav.setAttribute('aria-hidden', 'true');
-            }
+            mobilePanel.classList.toggle('active', open);
+            mobilePanel.setAttribute('aria-hidden', (!open).toString());
+            document.body.classList.toggle('mobile-nav-open', open);
         };
+
+        const closeNav = () => setNavState(false);
 
         menuToggle.addEventListener('click', function() {
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
             setNavState(!isExpanded);
         });
 
-        const navLinks = mainNav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 900) {
-                    setNavState(false);
-                }
-            });
+        if (closeButton) {
+            closeButton.addEventListener('click', closeNav);
+        }
+
+        mobilePanel.addEventListener('click', (event) => {
+            if (event.target === mobilePanel) {
+                closeNav();
+            }
+        });
+
+        const panelLinks = mobilePanel.querySelectorAll('a');
+        panelLinks.forEach(link => {
+            link.addEventListener('click', closeNav);
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeNav();
+            }
         });
 
         const syncForViewport = () => {
             if (window.innerWidth > 900) {
-                mainNav.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                mainNav.removeAttribute('aria-hidden');
-            } else if (menuToggle.getAttribute('aria-expanded') !== 'true') {
-                mainNav.classList.remove('active');
-                mainNav.setAttribute('aria-hidden', 'true');
+                closeNav();
+                if (primaryNav) {
+                    primaryNav.removeAttribute('aria-hidden');
+                }
+            } else if (primaryNav) {
+                primaryNav.setAttribute('aria-hidden', 'true');
             }
         };
 
@@ -336,7 +349,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const revealSelector = [
-        'section',
         '.hero',
         '.page-hero',
         '.program-card',
@@ -378,6 +390,15 @@ document.addEventListener('DOMContentLoaded', function() {
     revealTargets.forEach(target => {
         target.classList.add('reveal-on-scroll');
         observer.observe(target);
+    });
+
+    requestAnimationFrame(() => {
+        revealTargets.forEach(target => {
+            const rect = target.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.9) {
+                target.classList.add('is-visible');
+            }
+        });
     });
 });
 
