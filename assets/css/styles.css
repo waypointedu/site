@@ -1300,6 +1300,14 @@ section {
     margin-bottom: 1rem;
 }
 
+.course-instructor {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--accent-deep);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.01em;
+}
+
 .course-outcomes {
     list-style: none;
     margin-left: 0;
@@ -1404,17 +1412,61 @@ section {
     margin-bottom: 0.25rem;
 }
 
-.faculty-title {
-    font-size: 0.9375rem;
-    color: var(--accent);
+.faculty-role {
+    font-size: 0.95rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
     margin-bottom: 0.75rem;
 }
 
 .faculty-bio {
-    font-size: 0.9375rem;
-    color: var(--gray-600);
-    line-height: 1.5;
+    font-size: 0.95rem;
+    color: var(--gray-700);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.faculty-courses {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(45, 155, 240, 0.16);
+    box-shadow: 0 18px 40px -35px rgba(15, 23, 42, 0.4);
+}
+
+.faculty-courses h4 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-deep);
+    margin-bottom: 0.75rem;
+}
+
+.faculty-course-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+}
+
+.faculty-course-list li {
+    position: relative;
+    padding-left: 1.25rem;
+    color: var(--gray-700);
+    font-size: 0.95rem;
+}
+
+.faculty-course-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    font-weight: 700;
 }
 
 .faculty-note {
@@ -1480,6 +1532,227 @@ section {
 .leader-feature li {
     padding: 0.5rem 0;
     color: var(--gray-700);
+}
+
+/* ====================================
+   ABOUT PAGE
+   ==================================== */
+
+.about-hero {
+    position: relative;
+    background: radial-gradient(circle at 20% 20%, rgba(28, 79, 156, 0.25), transparent 55%),
+                radial-gradient(circle at 80% 10%, rgba(12, 44, 102, 0.35), transparent 60%),
+                linear-gradient(135deg, rgba(12, 44, 102, 0.92), rgba(28, 79, 156, 0.78));
+    color: var(--white);
+    overflow: hidden;
+}
+
+.about-hero .lead {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.mission-verse {
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    border-left: 4px solid rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    max-width: 580px;
+}
+
+.mission-verse .verse-text {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.mission-verse .verse-ref {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.mission-section {
+    background: var(--white);
+}
+
+.mission-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.mission-card {
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(227, 237, 255, 0.6));
+    border-radius: 18px;
+    padding: 2.5rem;
+    border: 1px solid rgba(45, 155, 240, 0.16);
+    box-shadow: 0 24px 50px -35px rgba(15, 23, 42, 0.45);
+}
+
+.mission-card h2,
+.mission-card h3 {
+    margin-bottom: 1rem;
+}
+
+.mission-card ul {
+    margin: 1rem 0 0;
+    padding-left: 1.25rem;
+    color: var(--gray-700);
+}
+
+.mission-card li {
+    padding: 0.4rem 0;
+}
+
+.mission-rhythm {
+    background: linear-gradient(200deg, rgba(12, 44, 102, 0.08), rgba(227, 237, 255, 0.85));
+}
+
+.ethos-section {
+    background: var(--cloud);
+}
+
+.ethos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.ethos-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(230, 244, 254, 0.5));
+    border-radius: 18px;
+    padding: 2.25rem;
+    border: 1px solid rgba(28, 79, 156, 0.16);
+    box-shadow: 0 20px 45px -35px rgba(15, 23, 42, 0.4);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.ethos-card:hover,
+.ethos-card:focus-within {
+    transform: translateY(-8px);
+    box-shadow: 0 32px 60px -38px rgba(18, 118, 194, 0.6);
+}
+
+.faith-section {
+    background: var(--white);
+}
+
+.faith-header {
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+.faith-list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 880px;
+    display: grid;
+    gap: 1.25rem;
+}
+
+.faith-list li {
+    background: rgba(227, 237, 255, 0.55);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    border: 1px solid rgba(28, 79, 156, 0.14);
+    box-shadow: 0 18px 44px -36px rgba(15, 23, 42, 0.42);
+    color: var(--gray-700);
+}
+
+.faith-list strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--accent-deep);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
+}
+
+.about-cta {
+    background: linear-gradient(160deg, rgba(12, 44, 102, 0.08), rgba(28, 79, 156, 0.12));
+}
+
+.cta-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.75rem;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 26px 70px -38px rgba(18, 118, 194, 0.45);
+    border: 1px solid rgba(45, 155, 240, 0.18);
+}
+
+.cta-card p {
+    color: var(--gray-700);
+    margin-bottom: 2rem;
+}
+
+/* ====================================
+   LOGIN PAGE (NO LOGIN NOTICE)
+   ==================================== */
+
+.no-login-section {
+    background: var(--white);
+}
+
+.no-login-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.no-login-card {
+    background: linear-gradient(175deg, rgba(255, 255, 255, 0.95), rgba(230, 244, 254, 0.55));
+    border-radius: 18px;
+    padding: 2.25rem;
+    border: 1px solid rgba(45, 155, 240, 0.14);
+    box-shadow: 0 24px 55px -38px rgba(15, 23, 42, 0.45);
+}
+
+.no-login-card h2 {
+    margin-bottom: 1rem;
+}
+
+.no-login-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.8rem;
+}
+
+.no-login-card li {
+    color: var(--gray-700);
+    position: relative;
+    padding-left: 1.4rem;
+}
+
+.no-login-card li::before {
+    content: "☉";
+    position: absolute;
+    left: 0;
+    top: -0.1rem;
+    color: var(--accent);
+    font-size: 1rem;
+}
+
+.no-login-card strong {
+    color: var(--accent-deep);
+}
+
+.no-login-card a {
+    font-weight: 600;
+}
+
+.no-login-note {
+    margin-top: 1.25rem;
+    color: var(--gray-600);
+    font-size: 0.95rem;
 }
 
 /* ====================================
