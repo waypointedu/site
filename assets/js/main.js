@@ -48,43 +48,68 @@ document.addEventListener('DOMContentLoaded', function() {
 // ====================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
+    const headers = document.querySelectorAll('.site-header');
 
-    if (menuToggle && mainNav) {
+    headers.forEach(header => {
+        const menuToggle = header.querySelector('.mobile-menu-toggle');
+        const mobilePanel = header.querySelector('.mobile-nav-panel');
+        const primaryNav = header.querySelector('.primary-nav');
+        const closeButton = mobilePanel ? mobilePanel.querySelector('.mobile-nav-close') : null;
+
+        if (!menuToggle || !mobilePanel) {
+            return;
+        }
+
         const setNavState = (open) => {
-            menuToggle.setAttribute('aria-expanded', open);
-            mainNav.classList.toggle('active', open);
-            mainNav.setAttribute('aria-hidden', (!open).toString());
+            const expanded = open ? 'true' : 'false';
+            menuToggle.setAttribute('aria-expanded', expanded);
+            mobilePanel.classList.toggle('active', open);
+            mobilePanel.setAttribute('aria-hidden', (!open).toString());
+            document.body.classList.toggle('mobile-nav-open', open);
         };
+
+        const closeNav = () => setNavState(false);
 
         menuToggle.addEventListener('click', function() {
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
             setNavState(!isExpanded);
         });
 
-        const navLinks = mainNav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 900) {
-                    setNavState(false);
-                }
-            });
-        });
-
-        if (window.innerWidth <= 900) {
-            mainNav.setAttribute('aria-hidden', 'true');
+        if (closeButton) {
+            closeButton.addEventListener('click', closeNav);
         }
 
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 900) {
-                setNavState(false);
-                mainNav.removeAttribute('aria-hidden');
-            } else if (menuToggle.getAttribute('aria-expanded') !== 'true') {
-                mainNav.setAttribute('aria-hidden', 'true');
+        mobilePanel.addEventListener('click', (event) => {
+            if (event.target === mobilePanel) {
+                closeNav();
             }
         });
-    }
+
+        const panelLinks = mobilePanel.querySelectorAll('a');
+        panelLinks.forEach(link => {
+            link.addEventListener('click', closeNav);
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeNav();
+            }
+        });
+
+        const syncForViewport = () => {
+            if (window.innerWidth > 900) {
+                closeNav();
+                if (primaryNav) {
+                    primaryNav.removeAttribute('aria-hidden');
+                }
+            } else if (primaryNav) {
+                primaryNav.setAttribute('aria-hidden', 'true');
+            }
+        };
+
+        syncForViewport();
+        window.addEventListener('resize', syncForViewport);
+    });
 });
 
 // ====================================
@@ -324,7 +349,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const revealSelector = [
-        'section',
         '.hero',
         '.page-hero',
         '.program-card',
@@ -366,6 +390,15 @@ document.addEventListener('DOMContentLoaded', function() {
     revealTargets.forEach(target => {
         target.classList.add('reveal-on-scroll');
         observer.observe(target);
+    });
+
+    requestAnimationFrame(() => {
+        revealTargets.forEach(target => {
+            const rect = target.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.9) {
+                target.classList.add('is-visible');
+            }
+        });
     });
 });
 
