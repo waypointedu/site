@@ -34,7 +34,7 @@
               <path d="M16.25 8.75C16.25 12.4749 13.2249 15.5 9.5 15.5C5.77513 15.5 2.75 12.4749 2.75 8.75C2.75 5.02513 5.77513 2 9.5 2C13.2249 2 16.25 5.02513 16.25 8.75Z" stroke="currentColor" stroke-width="1.5"/>
             </svg>
           </button>
-          <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <button class="mobile-menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-nav-menu">
             <span></span><span></span><span></span>
           </button>
         </div>
@@ -65,19 +65,11 @@
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
-          <div class="nav-mobile-actions">
-            <a href="contact.html" class="utility-link">Request Info</a>
-            <a href="https://waypointedu.github.io/site/apply" class="utility-link highlight">Apply Now</a>
-            <a href="https://waypointedu.github.io/site/give" class="utility-link">Give</a>
-          </div>
         </nav>
       </div>
     </div>
-    <div class="mobile-nav-panel" aria-hidden="true">
+    <div class="mobile-nav-menu" id="mobile-nav-menu" aria-hidden="true">
       <nav class="mobile-nav" aria-label="Mobile navigation">
-        <button class="mobile-nav-close" type="button" aria-label="Close navigation">
-          <span aria-hidden="true">&times;</span>
-        </button>
         <ul class="mobile-nav-links">
           <li><a href="programs.html">Programs</a></li>
           <li><a href="about.html" class="active" aria-current="page">About</a></li>

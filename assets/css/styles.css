@@ -303,8 +303,91 @@ section {
     transform: scaleX(1);
 }
 
-.nav-mobile-actions {
+.mobile-nav-menu {
     display: none;
+    background: var(--white);
+    border-top: 1px solid rgba(12, 44, 102, 0.08);
+    box-shadow: 0 24px 48px -32px rgba(10, 46, 109, 0.35);
+}
+
+.mobile-nav-menu.open {
+    display: block;
+}
+
+.mobile-nav {
+    padding: 1.5rem 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.mobile-nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.mobile-nav-links a {
+    display: block;
+    padding: 0.75rem 0;
+    font-weight: 600;
+    color: var(--ink);
+    border-bottom: 1px solid rgba(12, 44, 102, 0.08);
+}
+
+.mobile-nav-links li:last-child a {
+    border-bottom: none;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a:focus-visible,
+.mobile-nav-links a.active {
+    color: var(--accent);
+}
+
+.mobile-nav-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(12, 44, 102, 0.08);
+}
+
+.mobile-nav-actions .utility-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(12, 44, 102, 0.12);
+    color: var(--accent-deep);
+    font-weight: 600;
+}
+
+.mobile-nav-actions .utility-link.highlight {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white);
+}
+
+.mobile-nav-actions .utility-link.active {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.mobile-nav-actions .utility-link:hover,
+.mobile-nav-actions .utility-link:focus-visible {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+@media (min-width: 901px) {
+    .mobile-nav-menu {
+        display: none !important;
+    }
 }
 
 .mobile-nav-panel {
@@ -2872,10 +2955,6 @@ body.mobile-nav-open {
     }
 
     .primary-nav {
-        display: none;
-    }
-
-    .nav-mobile-actions {
         display: none;
     }
 

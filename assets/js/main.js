@@ -52,53 +52,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
     headers.forEach(header => {
         const menuToggle = header.querySelector('.mobile-menu-toggle');
-        const mobilePanel = header.querySelector('.mobile-nav-panel');
+        const mobileMenu = header.querySelector('.mobile-nav-menu');
         const primaryNav = header.querySelector('.primary-nav');
-        const closeButton = mobilePanel ? mobilePanel.querySelector('.mobile-nav-close') : null;
 
-        if (!menuToggle || !mobilePanel) {
+        if (!menuToggle || !mobileMenu) {
             return;
         }
 
         const setNavState = (open) => {
             const expanded = open ? 'true' : 'false';
             menuToggle.setAttribute('aria-expanded', expanded);
-            mobilePanel.classList.toggle('active', open);
-            mobilePanel.setAttribute('aria-hidden', (!open).toString());
-            document.body.classList.toggle('mobile-nav-open', open);
+            mobileMenu.classList.toggle('open', open);
+            mobileMenu.setAttribute('aria-hidden', (!open).toString());
+
+            if (open) {
+                document.removeEventListener('click', handleOutsideClick);
+                document.addEventListener('click', handleOutsideClick);
+            } else {
+                document.removeEventListener('click', handleOutsideClick);
+            }
         };
 
-        const closeNav = () => setNavState(false);
+        function handleOutsideClick(event) {
+            if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                setNavState(false);
+            }
+        }
 
-        menuToggle.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        menuToggle.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
             setNavState(!isExpanded);
         });
 
-        if (closeButton) {
-            closeButton.addEventListener('click', closeNav);
-        }
-
-        mobilePanel.addEventListener('click', (event) => {
-            if (event.target === mobilePanel) {
-                closeNav();
-            }
+        mobileMenu.addEventListener('click', (event) => {
+            event.stopPropagation();
         });
 
-        const panelLinks = mobilePanel.querySelectorAll('a');
-        panelLinks.forEach(link => {
-            link.addEventListener('click', closeNav);
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => setNavState(false));
         });
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
-                closeNav();
+                setNavState(false);
             }
         });
 
         const syncForViewport = () => {
             if (window.innerWidth > 900) {
-                closeNav();
+                setNavState(false);
                 if (primaryNav) {
                     primaryNav.removeAttribute('aria-hidden');
                 }
@@ -352,7 +356,6 @@ document.addEventListener('DOMContentLoaded', function() {
         '.hero',
         '.page-hero',
         '.program-card',
-        '.course-card',
         '.faculty-card',
         '.leader-feature',
         '.tier-card',
