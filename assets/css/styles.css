@@ -1280,6 +1280,14 @@ section {
     content: none;
 }
 
+.program-card ul.track-features li {
+    padding-left: 0;
+}
+
+.program-card ul.track-features li::before {
+    content: none;
+}
+
 .track-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
@@ -2336,6 +2344,13 @@ section {
 .contact-email a {
     color: var(--accent);
     font-weight: 600;
+}
+
+.emphasized-email {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 1.5rem 0;
 }
 
 .contact-note {
