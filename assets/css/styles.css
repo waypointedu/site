@@ -1288,6 +1288,14 @@ section {
     content: none;
 }
 
+.program-card ul.track-features li {
+    padding-left: 0;
+}
+
+.program-card ul.track-features li::before {
+    content: none;
+}
+
 .track-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
@@ -2318,7 +2326,7 @@ section {
    ==================================== */
 
 .contact-section,
-.contact-form-section {
+.contact-guidance {
     background: var(--white);
 }
 
@@ -2361,6 +2369,17 @@ section {
 .form-wrapper {
     max-width: 700px;
     margin: 0 auto;
+}
+
+.contact-guidance-list {
+    margin: 1.5rem 0;
+    padding-left: 1.25rem;
+    color: var(--gray-600);
+    line-height: 1.8;
+}
+
+.contact-guidance-list li {
+    margin-bottom: 0.75rem;
 }
 
 .form-intro {
@@ -3060,44 +3079,6 @@ section {
     margin-bottom: 1rem;
 }
 
-.application-checklist {
-    background: var(--cloud);
-}
-
-.checklist-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-}
-
-.checklist-card {
-    background: var(--white);
-    border-radius: 1.25rem;
-    padding: 1.75rem;
-    border: 1px solid rgba(20, 34, 64, 0.08);
-    box-shadow: 0 20px 40px -35px rgba(20, 34, 64, 0.45);
-}
-
-.checklist-card ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.checklist-card li {
-    padding-left: 1.5rem;
-    position: relative;
-    margin-bottom: 0.65rem;
-}
-
-.checklist-card li::before {
-    content: "\2022";
-    position: absolute;
-    left: 0;
-    color: var(--accent-deep);
-    font-weight: 700;
-}
-
 .application-next {
     background: var(--white);
 }
@@ -3131,18 +3112,6 @@ section {
     color: var(--accent-deep);
 }
 
-.application-help {
-    background: var(--cloud);
-}
-
-.help-card {
-    background: var(--white);
-    border-radius: 1.25rem;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 24px 48px -30px rgba(12, 44, 102, 0.45);
-}
-
 @media (max-width: 720px) {
     .hero-checklist {
         flex-direction: column;
@@ -3150,10 +3119,8 @@ section {
     }
 
     .application-card,
-    .checklist-card,
     .step-card,
-    .next-cta,
-    .help-card {
+    .next-cta {
         padding: 1.5rem;
     }
 }
