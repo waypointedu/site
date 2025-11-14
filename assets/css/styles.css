@@ -954,6 +954,10 @@ section {
     margin-bottom: 0;
 }
 
+.programs-note {
+    margin-top: 2.5rem;
+}
+
 .cert-details {
     margin-top: 0.75rem;
 }
@@ -1252,7 +1256,7 @@ section {
 }
 
 .program-card li {
-    padding-left: 1.5rem;
+    padding-left: 2rem;
     position: relative;
     margin-bottom: 0.75rem;
     color: var(--gray-700);
@@ -1262,8 +1266,42 @@ section {
     content: "→";
     position: absolute;
     left: 0;
+    top: 0.1rem;
     color: var(--accent);
     font-weight: 700;
+    width: 1.5rem;
+}
+
+.program-card ul.track-features li {
+    padding-left: 0;
+}
+
+.program-card ul.track-features li::before {
+    content: none;
+}
+
+.program-card ul.track-features li {
+    padding-left: 0;
+}
+
+.program-card ul.track-features li::before {
+    content: none;
+}
+
+.program-card ul.track-features li {
+    padding-left: 0;
+}
+
+.program-card ul.track-features li::before {
+    content: none;
+}
+
+.program-card ul.track-features li {
+    padding-left: 0;
+}
+
+.program-card ul.track-features li::before {
+    content: none;
 }
 
 .program-card ul.track-features li {
@@ -2336,6 +2374,13 @@ section {
 .contact-email a {
     color: var(--accent);
     font-weight: 600;
+}
+
+.emphasized-email {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 1.5rem 0;
 }
 
 .contact-note {
