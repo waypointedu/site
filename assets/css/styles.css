@@ -1256,7 +1256,7 @@ section {
 }
 
 .program-card li {
-    padding-left: 2rem;
+    padding-left: 2.5rem;
     position: relative;
     margin-bottom: 0.75rem;
     color: var(--gray-700);
@@ -1265,7 +1265,7 @@ section {
 .program-card li::before {
     content: "→";
     position: absolute;
-    left: 0;
+    left: 0.35rem;
     top: 0.1rem;
     color: var(--accent);
     font-weight: 700;
