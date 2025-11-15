@@ -1064,6 +1064,10 @@ body.mobile-nav-open {
     margin-bottom: 0;
 }
 
+.programs-note {
+    margin-top: 2.5rem;
+}
+
 .cert-details {
     margin-top: 0.75rem;
 }
@@ -1362,18 +1366,8 @@ body.mobile-nav-open {
 }
 
 .program-card li {
-    padding-left: 1.5rem;
-    position: relative;
     margin-bottom: 0.75rem;
     color: var(--gray-700);
-}
-
-.program-card li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: 700;
 }
 
 .track-grid {
