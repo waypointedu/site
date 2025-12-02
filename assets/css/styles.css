@@ -927,6 +927,19 @@ body.mobile-nav-open {
     text-align: center;
 }
 
+.mission-ethos .feature-item {
+    text-align: left;
+}
+
+.mission-ethos .feature-item h3 {
+    text-align: center;
+}
+
+.mission-ethos .feature-item ul {
+    text-align: left;
+    padding-left: 1.25rem;
+}
+
 .feature-icon {
     width: 80px;
     height: 80px;
@@ -1062,6 +1075,10 @@ body.mobile-nav-open {
 .card p {
     color: var(--gray-600);
     margin-bottom: 0;
+}
+
+.programs-note {
+    margin-top: 2.5rem;
 }
 
 .cert-details {
@@ -1208,44 +1225,67 @@ body.mobile-nav-open {
 }
 
 /* ====================================
-   DONOR PITCH
+   SUPPORT PITCH
    ==================================== */
 
-.donor-pitch {
+.support-pitch {
     background: var(--cloud);
     padding: 4rem 0;
 }
 
 .pitch-content {
-    max-width: 700px;
+    max-width: 760px;
     margin: 0 auto;
     text-align: center;
 }
 
 .pitch-content h2 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.pitch-stats {
-    display: flex;
-    flex-direction: column;
+.support-uses {
+    margin: 1.5rem auto 0;
+    max-width: 720px;
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    display: grid;
     gap: 1rem;
-    margin: 2rem 0;
 }
 
-.pitch-stat {
+.support-uses li {
     background: var(--white);
-    padding: 1.5rem;
-    border-radius: 8px;
-    font-size: 1.125rem;
-    line-height: 1.5;
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
 }
 
-.pitch-stat strong {
-    color: var(--accent);
-    font-size: 1.5rem;
+.support-uses strong {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.support-cta {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 420px;
+    margin: 2rem auto 0;
+    padding: 1.25rem 2rem;
+    border-radius: 16px;
+    font-size: 1.125rem;
+    letter-spacing: 0.02em;
+}
+
+.support-note {
+    margin-top: 1rem;
+    color: var(--gray-700);
+    font-size: 0.95rem;
+}
+
+.tight-spacing {
+    padding-top: 2rem;
 }
 
 .legal-statement {
@@ -1262,6 +1302,24 @@ body.mobile-nav-open {
     text-align: center;
 }
 
+.transparency-band {
+    background: var(--white);
+    padding: 3rem 0;
+}
+
+.transparency-band h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.transparency-note {
+    max-width: 760px;
+    margin: 1.5rem auto 0;
+    text-align: center;
+    color: var(--gray-700);
+    font-size: 0.95rem;
+}
+
 /* ====================================
    PROGRAMS PAGE
    ==================================== */
@@ -1269,6 +1327,11 @@ body.mobile-nav-open {
 .programs-section,
 .tracks-section {
     background: var(--white);
+    padding: 3rem 0;
+}
+
+.programs-section + .programs-section {
+    padding-top: 3rem;
 }
 
 .section-intro {
@@ -1362,18 +1425,8 @@ body.mobile-nav-open {
 }
 
 .program-card li {
-    padding-left: 1.5rem;
-    position: relative;
     margin-bottom: 0.75rem;
     color: var(--gray-700);
-}
-
-.program-card li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: 700;
 }
 
 .track-grid {
@@ -2249,7 +2302,7 @@ body.mobile-nav-open {
     font-style: italic;
 }
 
-.give-cta {
+.support-cta-section {
     background: var(--accent-light);
     padding: 4rem 0;
 }
