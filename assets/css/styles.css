@@ -119,6 +119,7 @@ section {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 12px 32px -20px rgba(10, 46, 109, 0.45);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .utility-bar {
@@ -134,6 +135,7 @@ section {
     align-items: center;
     gap: 1.5rem;
     padding: 0.75rem 0;
+    transition: padding 0.3s ease;
 }
 
 .logo {
@@ -149,6 +151,7 @@ section {
     line-height: 0;
     text-decoration: none;
     isolation: isolate;
+    transition: width 0.3s ease, height 0.3s ease;
 }
 
 .logo-mark {
@@ -260,6 +263,7 @@ section {
     align-items: center;
     justify-content: center;
     padding: 0.35rem 0;
+    transition: padding 0.3s ease;
 }
 
 .main-nav {
@@ -282,6 +286,30 @@ section {
     padding: 0.75rem 0;
     position: relative;
     display: inline-block;
+    transition: padding 0.3s ease, font-size 0.3s ease;
+}
+
+.site-header.is-compact {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 18px 30px -22px rgba(10, 46, 109, 0.35);
+}
+
+.site-header.is-compact .utility-content {
+    padding: 0.4rem 0;
+}
+
+.site-header.is-compact .logo {
+    width: 40px;
+    height: 40px;
+}
+
+.site-header.is-compact .nav-content {
+    padding: 0.2rem 0;
+}
+
+.site-header.is-compact .main-nav a {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
 }
 
 .main-nav a::after {
@@ -544,7 +572,7 @@ section {
    ==================================== */
 
 .hero {
-    padding: 4.5rem 0 3rem;
+    padding: 4rem 0 0;
     background: var(--white);
     position: relative;
     overflow: hidden;
@@ -555,8 +583,9 @@ section {
 .hero .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 2.5rem;
+    padding-bottom: 2.5rem;
 }
 
 .hero-badge {
@@ -625,15 +654,15 @@ section {
 }
 
 .hero-media {
-    flex: 1;
-    min-width: 0;
+    width: 100%;
 }
 
 .hero-media-frame {
     position: relative;
-    width: 100%;
-    min-height: 360px;
-    border-radius: 24px;
+    width: 100vw;
+    min-height: 420px;
+    margin-left: calc(50% - 50vw);
+    border-radius: 0;
     overflow: hidden;
     background: #0f2448;
     box-shadow: 0 30px 70px -40px rgba(6, 27, 64, 0.8);
@@ -2975,11 +3004,7 @@ section {
     h3 { font-size: 1.25rem; }
 
     .hero {
-        padding: 4rem 0 2.5rem;
-    }
-
-    .hero-background {
-        background-position: center top;
+        padding: 3.5rem 0 0;
     }
 
     .hero .container {
@@ -3001,8 +3026,8 @@ section {
     }
 
     .hero-media-frame {
-        min-height: 240px;
-        border-radius: 18px;
+        min-height: 260px;
+        border-radius: 0;
     }
 
     .hero-quote {

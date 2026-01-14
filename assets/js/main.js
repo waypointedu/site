@@ -44,6 +44,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ====================================
+// HEADER SHRINK ON SCROLL
+// ====================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.site-header');
+
+    if (!header) {
+        return;
+    }
+
+    const updateHeaderState = () => {
+        header.classList.toggle('is-compact', window.scrollY > 60);
+    };
+
+    updateHeaderState();
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+});
+
+// ====================================
 // MOBILE MENU TOGGLE
 // ====================================
 
