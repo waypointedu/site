@@ -292,6 +292,12 @@ section {
     font-size: 0.9rem;
 }
 
+.site-header.is-compact .main-nav,
+.site-header.is-compact .main-nav ul {
+    opacity: 1;
+    visibility: visible;
+}
+
 .main-nav a::after {
     content: '';
     position: absolute;
@@ -610,71 +616,9 @@ section {
     text-shadow: 0 12px 24px rgba(5, 15, 35, 0.5);
 }
 
-.hero-media-slide {
-    position: absolute;
-    inset: 0;
-    display: none;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    animation: heroVideoCycle 18s ease-in-out infinite;
-    z-index: 0;
-}
-
-.hero-media-slide::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, rgba(10, 25, 52, 0.55) 0%, rgba(10, 25, 52, 0.2) 45%, rgba(10, 25, 52, 0) 100%);
-}
-
-.hero-media-slide.slide-one {
-    background-image: linear-gradient(120deg, rgba(15, 45, 90, 0.55), rgba(15, 45, 90, 0.1)),
-        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12), transparent 45%),
-        url('../img/icthys.png');
-}
-
-.hero-media-slide.slide-two {
-    background-image: linear-gradient(120deg, rgba(12, 33, 70, 0.6), rgba(12, 33, 70, 0.15)),
-        radial-gradient(circle at 80% 25%, rgba(255, 255, 255, 0.12), transparent 42%),
-        url('../img/icthys.png');
-    animation-delay: 6s;
-}
-
-.hero-media-slide.slide-three {
-    background-image: linear-gradient(120deg, rgba(18, 50, 96, 0.55), rgba(18, 50, 96, 0.12)),
-        radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.12), transparent 48%),
-        url('../img/icthys.png');
-    animation-delay: 12s;
-}
-
-@keyframes heroVideoCycle {
-    0%,
-    28% {
-        opacity: 1;
-    }
-    33%,
-    95% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
     .hero-media-video {
         display: none;
-    }
-
-    .hero-media-slide {
-        display: block;
-        animation: none;
-        opacity: 0;
-    }
-
-    .hero-media-slide.slide-one {
-        opacity: 1;
     }
 }
 
