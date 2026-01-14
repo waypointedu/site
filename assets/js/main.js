@@ -461,63 +461,34 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ====================================
-// HERO BACKGROUND MICRO-PARALLAX
+// HERO QUOTE LINE SCROLL EXPAND
 // ====================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    const hero = document.querySelector('.hero');
-    const heroBackground = hero ? hero.querySelector('.hero-background') : null;
+    const quoteSection = document.querySelector('.hero-quote');
+    const quoteLine = quoteSection ? quoteSection.querySelector('.hero-quote-line') : null;
 
-    if (!hero || !heroBackground) {
+    if (!quoteSection || !quoteLine) {
         return;
     }
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const supportsPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 
-    if (prefersReducedMotion.matches || !supportsPointer.matches) {
+    if (prefersReducedMotion.matches) {
+        quoteSection.style.setProperty('--quote-progress', '1');
         return;
     }
 
-    const maxOffset = 8;
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
-    let rafId = null;
-
-    const updatePosition = () => {
-        currentX += (targetX - currentX) * 0.08;
-        currentY += (targetY - currentY) * 0.08;
-        heroBackground.style.backgroundPosition = `calc(50% + ${currentX}px) calc(50% + ${currentY}px)`;
-
-        if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
-            rafId = requestAnimationFrame(updatePosition);
-        } else {
-            rafId = null;
-        }
+    const updateLine = () => {
+        const rect = quoteSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight || 1;
+        const visible = Math.min(windowHeight, Math.max(0, windowHeight - rect.top));
+        const progress = Math.min(1, Math.max(0, visible / (rect.height * 0.8)));
+        quoteSection.style.setProperty('--quote-progress', progress.toFixed(3));
     };
 
-    const handleMove = (event) => {
-        const rect = hero.getBoundingClientRect();
-        const relativeX = (event.clientX - rect.left) / rect.width - 0.5;
-        const relativeY = (event.clientY - rect.top) / rect.height - 0.5;
-        targetX = relativeX * maxOffset * 2;
-        targetY = relativeY * maxOffset * 2;
+    updateLine();
 
-        if (!rafId) {
-            rafId = requestAnimationFrame(updatePosition);
-        }
-    };
-
-    const reset = () => {
-        targetX = 0;
-        targetY = 0;
-        if (!rafId) {
-            rafId = requestAnimationFrame(updatePosition);
-        }
-    };
-
-    hero.addEventListener('mousemove', handleMove);
-    hero.addEventListener('mouseleave', reset);
+    window.addEventListener('scroll', updateLine, { passive: true });
+    window.addEventListener('resize', updateLine);
 });
