@@ -44,6 +44,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ====================================
+// HEADER SHRINK ON SCROLL
+// ====================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.site-header');
+
+    if (!header) {
+        return;
+    }
+
+    const updateHeaderState = () => {
+        header.classList.toggle('is-compact', window.scrollY > 60);
+    };
+
+    updateHeaderState();
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+});
+
+// ====================================
 // MOBILE MENU TOGGLE
 // ====================================
 
@@ -458,4 +477,37 @@ document.addEventListener('DOMContentLoaded', function() {
         target.addEventListener('pointermove', handlePointerMove);
         target.addEventListener('pointerleave', resetPointer);
     });
+});
+
+// ====================================
+// HERO QUOTE LINE SCROLL EXPAND
+// ====================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const quoteSection = document.querySelector('.hero-quote');
+    const quoteLine = quoteSection ? quoteSection.querySelector('.hero-quote-line') : null;
+
+    if (!quoteSection || !quoteLine) {
+        return;
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    if (prefersReducedMotion.matches) {
+        quoteSection.style.setProperty('--quote-progress', '1');
+        return;
+    }
+
+    const updateLine = () => {
+        const rect = quoteSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight || 1;
+        const visible = Math.min(windowHeight, Math.max(0, windowHeight - rect.top));
+        const progress = Math.min(1, Math.max(0, visible / (rect.height * 0.8)));
+        quoteSection.style.setProperty('--quote-progress', progress.toFixed(3));
+    };
+
+    updateLine();
+
+    window.addEventListener('scroll', updateLine, { passive: true });
+    window.addEventListener('resize', updateLine);
 });
