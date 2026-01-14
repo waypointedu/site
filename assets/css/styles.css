@@ -129,7 +129,7 @@ section {
 .utility-content {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
     padding: 1.4rem 0;
     transition: padding 0.3s ease;
 }
@@ -205,10 +205,34 @@ section {
     color: var(--accent);
 }
 
+.main-nav {
+    flex: 1;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 1.25rem;
+    list-style: none;
+    margin: 0;
+    justify-content: center;
+}
+
+.main-nav a {
+    color: var(--accent-deep);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 1rem 0;
+    position: relative;
+    display: inline-block;
+    transition: padding 0.3s ease, font-size 0.3s ease;
+}
+
 .utility-actions {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    margin-left: auto;
 }
 
 .utility-search {
@@ -249,43 +273,6 @@ section {
     transition: var(--transition);
 }
 
-.primary-nav {
-    position: relative;
-    background: var(--white);
-    border-bottom: 1px solid rgba(12, 44, 102, 0.08);
-}
-
-.nav-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.8rem 0;
-    transition: padding 0.3s ease;
-}
-
-.main-nav {
-    width: 100%;
-}
-
-.main-nav ul {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-    margin: 0;
-    justify-content: center;
-}
-
-.main-nav a {
-    color: var(--accent-deep);
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    padding: 1rem 0;
-    position: relative;
-    display: inline-block;
-    transition: padding 0.3s ease, font-size 0.3s ease;
-}
-
 .site-header.is-compact {
     background-color: rgba(255, 255, 255, 0.98);
     box-shadow: 0 18px 30px -22px rgba(10, 46, 109, 0.35);
@@ -300,19 +287,9 @@ section {
     height: 48px;
 }
 
-.site-header.is-compact .nav-content {
-    padding: 0.4rem 0;
-}
-
 .site-header.is-compact .main-nav a {
     padding: 0.6rem 0;
     font-size: 0.9rem;
-    color: var(--white);
-}
-
-.site-header.is-compact .primary-nav {
-    background: var(--accent-deep);
-    border-bottom: none;
 }
 
 .main-nav a::after {
@@ -636,6 +613,7 @@ section {
 .hero-media-slide {
     position: absolute;
     inset: 0;
+    display: none;
     background-size: cover;
     background-position: center;
     opacity: 0;
@@ -690,6 +668,7 @@ section {
     }
 
     .hero-media-slide {
+        display: block;
         animation: none;
         opacity: 0;
     }
@@ -3006,7 +2985,7 @@ section {
         display: flex;
     }
 
-    .primary-nav {
+    .main-nav {
         display: none;
     }
 
