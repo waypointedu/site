@@ -305,6 +305,10 @@ section {
     transition: var(--transition);
 }
 
+.site-header.is-compact .main-nav a::after {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+}
+
 .main-nav a:hover::after,
 .main-nav a:focus-visible::after,
 .main-nav a.active::after {
