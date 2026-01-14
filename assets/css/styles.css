@@ -2978,6 +2978,10 @@ section {
         padding: 4rem 0 2.5rem;
     }
 
+    .hero-background {
+        background-position: center top;
+    }
+
     .hero .container {
         flex-direction: column;
         justify-content: center;
